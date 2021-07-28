@@ -1,26 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { IApp} from "./types";
+import { TodoList } from "./TodoList";
 
-function App() {
+const App: React.FC<IApp> = ({todos}) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div>
+        <TodoList todos={todos}/>
+        <ExpensiveTree />
+      </div>
   );
+};
+
+function ExpensiveTree() {
+  let now = performance.now();
+
+  while (performance.now() - now < 1000) {
+    // Artificial delay -- do nothing for 1000ms
+  }
+
+  return null;
 }
 
 export default App;

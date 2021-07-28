@@ -4,9 +4,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+const initialState: { id: string | number; title: string; isDone: boolean; }[] = [];
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App  todos={initialState}/>
   </React.StrictMode>,
   document.getElementById('root')
 );
